@@ -2,8 +2,8 @@ import Store from '../store.js';
 import axios from "axios";
 
 export function useLocations() {
-    const [{locations}, setState] = Store.useStore();
-    const locationUrl = "http://127.0.0.1:4114";
+    const [{locations, envVars}, setState] = Store.useStore();
+    const locationUrl = envVars.locationsUrl;
 
     const load = async () => {
         const resp = await axios.get(locationUrl);
